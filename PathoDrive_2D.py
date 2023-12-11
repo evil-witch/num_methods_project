@@ -32,7 +32,6 @@ P_i_ave = 1.33 * 30 * (-0.35968 + 0.10789 * 15 - 0.00214 * 15 * 15) * 30 + 1
 P_i_std = 0.2 * P_i_ave  # variance in the initial growth (fraction of the average)
 
 # Global pathogen parameters
-beta_max = 2  # max rate infection spread under ideal conditions (1/day)
 mu_L_min = 6  # min length of latent period (min number of days latent)
 mu_I = 10  # rate infection clears (number of days infectious)
 eta = 1  # release fraction scale factor
