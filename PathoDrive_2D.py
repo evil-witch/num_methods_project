@@ -83,10 +83,10 @@ S_ave = np.mean([v['S'] for v in vine], axis=0)
 L_ave = np.mean([v['L'] for v in vine], axis=0)
 I_ave = np.mean([v['I'] for v in vine], axis=0)
 R_ave = np.mean([v['R'] for v in vine], axis=0)
-P_ave = np.mean([v['P'] for v in vine], axis=0)
+P_ave = np.mean([v['P']/A for v in vine], axis=0)
 E_ave = np.mean([v['E'] for v in vine], axis=0)
 F_ave = np.mean([v['F'] for v in vine], axis=0)
-B_ave = np.mean([v['B'] for v in vine], axis=0)
+B_ave = np.mean([v['B']/A for v in vine], axis=0)
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 #% plot results
