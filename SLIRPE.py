@@ -58,8 +58,9 @@ def SLIRPE_model(idx, y, e, mu_L, p):
     dydt = np.zeros_like(y)
 # =============================================================================
 #     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-#     dydt[0] = %YOUR CODE GOES HERE for our Pb (Berries) function
-#     dydt[1] = %YOUR CODE GOES HERE for our P function
+    dPldt = 1.33*(day_used+30)*sall_temp_effect(T_used)
+    dydt[0] = (0.1724*B-0.0000212*B**2)*sall_temp_effect(T_used)
+    dydt[1] = dydt[0] + dPldt
 #     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # =============================================================================
 
@@ -71,11 +72,11 @@ def SLIRPE_model(idx, y, e, mu_L, p):
 
 # =============================================================================
 #     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-#     %YOUR CODE GOES HERE for our E function
+    dydt[6] = e  #YOUR CODE GOES HERE for our E function
     if(I==0):  #spore production shouldn't start before infection (quirk of exponential curve fit)
         dydt[7] = 0
     else:
-#       YOUR CODE GOES HERE for our F function
+        dydt[7] = Gamma*np.exp(alpha*I*A) - F*(np.exp(kappa*m_used))
 #     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # =============================================================================
     return dydt
