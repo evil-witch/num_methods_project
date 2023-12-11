@@ -72,11 +72,11 @@ def SLIRPE_model(idx, y, e, mu_L, p):
 
 # =============================================================================
 #     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    dydt[6] = e  #YOUR CODE GOES HERE for our E function
+    dydt[6] = e  #Change in E
     if(I==0):  #spore production shouldn't start before infection (quirk of exponential curve fit)
         dydt[7] = 0
     else:
-        dydt[7] = Gamma*np.exp(alpha*I*A) - F*((np.exp(kappa*m_used+ xi))/(eta*(1+np.exp(kappa*m_used+ xi))))
+        dydt[7] = Gamma*np.exp(alpha*I*A) - F*((np.exp(kappa*m_used + xi))/(eta*(1+np.exp(kappa*m_used + xi)))) #Change in F
 #     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # =============================================================================
     return dydt
